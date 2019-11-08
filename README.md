@@ -1,1 +1,1 @@
-# YGM-Algo
+# YGM
