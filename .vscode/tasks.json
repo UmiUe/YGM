@@ -16,7 +16,7 @@
             },
             "problemMatcher": {
                 "base": "$gcc",
-                "fileLocation":"autoDetect"
+                "fileLocation": "autoDetect"
             },
             "group": {
                 "kind": "build",
