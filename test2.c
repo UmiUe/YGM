@@ -17,6 +17,8 @@
      }
 
      inOrder(root);
+     printf("\n");
+     preOrder(root);
 
      return 0;     
  }
