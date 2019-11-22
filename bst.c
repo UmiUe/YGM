@@ -21,7 +21,7 @@ void insert(struct node *root, int n)
     }
     if(root->key > n)
     {
-        insert(root->left, n);
+        insert(root->left, n); 
     }
     else if (root->key < n)
     {
