@@ -1,9 +1,9 @@
 #include "bst.h"
 #include <stdlib.h>
 
-void newNode(struct node *root, int n)
+struct node *newNode(int n)
 {
-    struct node *p = malloc(sizeof(struct node));
+    struct node *p = (struct node*)malloc(sizeof(struct node));
     if (p == NULL)
     {
         printf("Error\n");
@@ -11,24 +11,45 @@ void newNode(struct node *root, int n)
     }
     p->key = n;
     p->left = p->right = NULL;
+    return p;
 }
 
-void insert(struct node *root, int n)
+struct node *insert(struct node *root, int n)
 {
     if(root == NULL)
     {
-        root = newNode(n);
+        return newNode(n);
     }
     if(root->key > n)
     {
-        insert(root->left, n); 
+        root->left = insert(root->left, n); 
     }
     else if (root->key < n)
     {
-        insert(root->right, n);
+        root->right = insert(root->right, n);
     }
     else
     {
-        return ;
+        return root;
+    }
+}
+
+void inOrder(struct node *root)
+{
+    if (root != NULL)
+    {
+        inOrder(root->left);
+        printf("%d ", root->key);
+        inOrder(root->right);
+    }
+}
+
+void preOrder(struct node *root)
+{
+    if (root != NULL)
+    {
+        printf("%d ", root->key);
+        preOrder(root->left);
+        preOrder(root->right);
     }
 }
